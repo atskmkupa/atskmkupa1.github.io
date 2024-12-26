@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="10" />
+    <!-- Refreshes every 30 seconds -->
+    <title>Auto-Refreshing Google Sheet</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center; /* Centers content horizontally */
+      align-items: center;   /* Centers content vertically */
+      height: 100vh;          /* Sets the body height to the full viewport */
+      background-color: #000; /* Optional: Set a background color */
+    }
+    iframe {
+      width: 100%;  /* Takes 90% of the screen width */
+      height: 100%; /* Takes 90% of the screen height */
+      max-width: 1920px;  /* Prevents the iframe from exceeding 1920px width */
+      max-height: 1080px; /* Prevents the iframe from exceeding 1080px height */
+    }
+  </style>
+</head>
+<body>
+  <iframe
+  src="https://docs.google.com/presentation/d/e/2PACX-1vRT1xc-e49FhIMU-HmqAs1laTFG20Pt6Up_3VB9h4Ayi57ZVmhpknV6-7EEsgM8lNV4IUckb3hwL71u/embed?start=true&loop=true&delayms=2000"
+    frameborder="0"
+    allowfullscreen="true"
+    mozallowfullscreen="true"
+    webkitallowfullscreen="true"
+  ></iframe>
+  <script>
+    // Automatically request full-screen mode on page load
+    function enterFullScreen() {
+      const bodyElement = document.documentElement; // Get the root HTML element
+      if (bodyElement.requestFullscreen) {
+        bodyElement.requestFullscreen();
+      } else if (bodyElement.mozRequestFullScreen) { // For Firefox
+        bodyElement.mozRequestFullScreen();
+      } else if (bodyElement.webkitRequestFullscreen) { // For Chrome, Safari, and Opera
+        bodyElement.webkitRequestFullscreen();
+      } else if (bodyElement.msRequestFullscreen) { // For IE/Edge
+        bodyElement.msRequestFullscreen();
+      }
+    }
+
+    // Call the function on page load
+    window.onload = enterFullScreen;
+  </script>
+</body>
+</html>
